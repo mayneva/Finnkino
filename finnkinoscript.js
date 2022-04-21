@@ -13,23 +13,24 @@ function loadXMLDoc(ddlSelection) {
 function myFunction(xml, ddlSelection) {
   var i;
   var xmlDoc = xml.responseXML;
-  var table = "<tr><th>Cinema/Theatre</th><th>Film name</th><th>Start time</th><th>Poster</th><th>Genres</th></tr>";
+  var table = "<tr><th>Poster</th><th>Film name</th><th>Start time</th><th>Lenght</th><th>Genres</th></tr>";
   var x = xmlDoc.getElementsByTagName("Show");
 
   for (i = 0; i < x.length; i++) {
     if (x[i].getElementsByTagName("Theatre")[0].childNodes[0].nodeValue == ddlSelection) {
 
-      table += "<tr><td>" +
-        x[i].getElementsByTagName("Theatre")[0].childNodes[0].nodeValue +
-        "</td><td>" +
+      table +=
+        "<tr><td><img src='" +
+        x[i].getElementsByTagName("EventSmallImagePortrait")[0].childNodes[0].nodeValue +
+        "'/></td><td>" +
         x[i].getElementsByTagName("Title")[0].childNodes[0].nodeValue +
         "</td><td>" +
         x[i].getElementsByTagName("dttmShowStart")[0].childNodes[0].nodeValue +
-        "</td><td><img src='" +
-        x[i].getElementsByTagName("EventSmallImagePortrait")[0].childNodes[0].nodeValue +
-        "'/></td><td>" +
+        "</td><td>" +
+        x[i].getElementsByTagName("LengthInMinutes")[0].childNodes[0].nodeValue +
+        "</td><td>" +
         x[i].getElementsByTagName("Genres")[0].childNodes[0].nodeValue +
-        "</td></tr > ";
+        "</td></tr>";
     }
   }
 
