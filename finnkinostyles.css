@@ -4,6 +4,7 @@ td {
   border-collapse: collapse;
   border-bottom: 1px solid #ddd;
   padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 tr:nth-child(even) {
@@ -12,4 +13,13 @@ tr:nth-child(even) {
 
 th {
   text-align: left;
+}
+
+table {
+  width: 100%;
+}
+
+.ddl {
+  text-align: center;
+  font: 20px Arial, sans-serif;
 }
