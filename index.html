@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="fi">
 
 <head>
   <link rel="stylesheet" href="finnkinostyles.css">
 </head>
+
+<script>
+  function showFilms(value) {
+    alert(value);
+  }
+</script>
 
 <body>
 
   <script src="Finnkinoscript.js"></script>
 
   <form name="form1" id="form1" action="/action_page.php">
-    Cinema <select name="subject" id="subject">
+    Cinema <select name="subject" id="subject" onmousedown="this.value='';" onchange="loadXMLDoc(this.value);">
       <option value="" selected="selected">Select an area</option>
     </select>
     <br><br>
   </form>
 
-  <button type="button" onclick="loadXMLDoc()">Finnkino</button>
-  <br><br>
   <table id="films"></table>
 
 </body>
