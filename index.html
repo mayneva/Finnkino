@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html>
-<style>
-  table,
-  th,
-  td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
 
-  th,
-  td {
-    padding: 5px;
-  }
-</style>
+<head>
+  <link rel="stylesheet" href="finnkinostyles.css">
+</head>
 
 <body>
+
+  <script src="Finnkinoscript.js"></script>
+
+  <form name="form1" id="form1" action="/action_page.php">
+    Cinema <select name="subject" id="subject">
+      <option value="" selected="selected">Select from drop-down list</option>
+    </select>
+    <br><br>
+  </form>
 
   <button type="button" onclick="loadXMLDoc()">Finnkino</button>
   <br><br>
   <table id="demo"></table>
-
-  <script src="Finnkinoscript.js"></script>
 
 </body>
 
