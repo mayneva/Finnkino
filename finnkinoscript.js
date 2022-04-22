@@ -13,7 +13,7 @@ function loadXMLDoc(ddlSelection) {
 function myFunction(xml, ddlSelection) {
   var i;
   var xmlDoc = xml.responseXML;
-  var table = "<tr><th>Poster</th><th>Film name</th><th>Start time</th><th>Lenght</th><th>Genres</th></tr>";
+  var table = "<tr><th>POSTER</th><th>FILM NAME</th><th>START TIME</th><th>LENGHT</th><th>GENRES</th></tr>";
   var x = xmlDoc.getElementsByTagName("Show");
 
   for (i = 0; i < x.length; i++) {

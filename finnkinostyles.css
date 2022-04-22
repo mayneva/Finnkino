@@ -1,3 +1,10 @@
+html,
+body {
+  background-color: #363642;
+  color: #2D2D36;
+  padding: 4rem;
+}
+
 table,
 th,
 td {
@@ -11,15 +18,33 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+  opacity: 0.9;
+}
+
 th {
-  text-align: left;
+  background-color: #373a38;
+  color: white;
 }
 
 table {
   width: 100%;
+  text-align: center;
 }
 
 .ddl {
-  text-align: center;
-  font: 20px Arial, sans-serif;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(153, 153, 153, 0.35);
+  padding: 0.5em;
+  border: solid #eee;
+  max-width: 300px;
+  margin: auto;
+}
+
+#subject {
+  margin: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
 }
