@@ -10,6 +10,26 @@ function loadXMLDoc(ddlSelection) {
   xmlhttp.send();
 }
 
+// date converter
+
+function convertDate(pastDate) {
+  var date = new Date(pastDate);
+  var d = date.getDate();
+  var m = date.getMonth() + 1;
+  var y = date.getFullYear();
+  var h = date.getHours();
+  var min = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+  return (d <= 9 ? '0' + d : d) + '.' + (m <= 9 ? '0' + m : m) + '.' + y + " " + h + ":" + min;
+}
+
+// time converter
+
+function getTimeFromMins(mins) {
+  let hours = Math.trunc(mins / 60);
+  let minutes = mins % 60;
+  return hours + 'h. ' + minutes + 'min.';
+}
+
 function myFunction(xml, ddlSelection) {
   var i;
   var xmlDoc = xml.responseXML;
@@ -24,11 +44,8 @@ function myFunction(xml, ddlSelection) {
         x[i].getElementsByTagName("EventSmallImagePortrait")[0].childNodes[0].nodeValue +
         "'/></td><td>" +
         x[i].getElementsByTagName("Title")[0].childNodes[0].nodeValue +
-        "</td><td>" +
-        x[i].getElementsByTagName("dttmShowStart")[0].childNodes[0].nodeValue +
-        "</td><td>" +
-        x[i].getElementsByTagName("LengthInMinutes")[0].childNodes[0].nodeValue +
-        "</td><td>" +
+        "</td><td>" + convertDate(x[i].getElementsByTagName("dttmShowStart")[0].childNodes[0].nodeValue) + "</td><td>" +
+        getTimeFromMins(x[i].getElementsByTagName("LengthInMinutes")[0].childNodes[0].nodeValue) + "</td><td>" +
         x[i].getElementsByTagName("Genres")[0].childNodes[0].nodeValue +
         "</td></tr>";
     }
