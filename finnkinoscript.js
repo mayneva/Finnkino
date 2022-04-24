@@ -1,4 +1,6 @@
 
+//Creating an XMLHttpRequest and handling the response
+
 function loadXMLDoc(ddlSelection) {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
@@ -10,7 +12,7 @@ function loadXMLDoc(ddlSelection) {
   xmlhttp.send();
 }
 
-// date converter
+// date and time converter, because XML includes non user-friendly data
 
 function convertDate(pastDate) {
   var date = new Date(pastDate);
@@ -22,7 +24,7 @@ function convertDate(pastDate) {
   return (d <= 9 ? '0' + d : d) + '.' + (m <= 9 ? '0' + m : m) + '.' + y + " " + h + ":" + min;
 }
 
-// time converter
+// time converter, , because XML includes non user-friendly data
 
 function getTimeFromMins(mins) {
   let hours = Math.trunc(mins / 60);
@@ -30,12 +32,15 @@ function getTimeFromMins(mins) {
   return hours + 'h. ' + minutes + 'min.';
 }
 
+//table creating with using data from XML
+
 function myFunction(xml, ddlSelection) {
   var i;
   var xmlDoc = xml.responseXML;
   var table = "<tr><th>POSTER</th><th>FILM NAME</th><th>START TIME</th><th>LENGHT</th><th>GENRES</th></tr>";
   var x = xmlDoc.getElementsByTagName("Show");
 
+  //comparing "Theatre" from XML with data from DDL
   for (i = 0; i < x.length; i++) {
     if (x[i].getElementsByTagName("Theatre")[0].childNodes[0].nodeValue == ddlSelection) {
 
@@ -54,6 +59,7 @@ function myFunction(xml, ddlSelection) {
   document.getElementById("films").innerHTML = table;
 }
 
+//populate DDL
 
 window.onload = function () {
   var subjectSel = document.getElementById("subject");
@@ -62,6 +68,7 @@ window.onload = function () {
   }
 }
 
+//DDL list
 
 var subjectObject = {
   "Omena, Espoo": {},
